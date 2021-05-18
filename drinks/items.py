@@ -1,12 +1,26 @@
-# Define here the models for your scraped items
-#
-# See documentation in:
-# https://docs.scrapy.org/en/latest/topics/items.html
+from re import M
+from scrapy.item import Item, Field
+from datetime import datetime 
+from scrapy.loader.processors import MapCompose, TakeFirst
 
-import scrapy
+def remove_chars(text):
+    text = text.strip()
+    return text
+   
 
 
-class DrinksItem(scrapy.Item):
+class DrinksItem(Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    name = Field()
+    price = Field(
+        input_processor=MapCompose(remove_chars)
+    )
+    link = Field()
+    summary = Field()
+    drink_volume = Field()
+    alcohol_percentage = Field()
+    origin_place = Field(
+        input_processor=MapCompose(remove_chars)
+    )
+
