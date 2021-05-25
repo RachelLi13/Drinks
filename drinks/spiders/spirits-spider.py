@@ -12,7 +12,7 @@ class SojuSpider(scrapy.Spider):
         'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/grappa',
         'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/liqueur-liquor-15015',
         'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/rum-15016',
-        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/shochu-soju-15017'
+        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/shochu-soju-15017']
 
 
     def parse(self, response):
