@@ -16,6 +16,8 @@ NEWSPIDER_MODULE = 'drinks.spiders'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'drinks (+http://www.yourdomain.com)'
 
+CONNECTION_STRING = 'sqlite:///scrapy_quotes.db'
+
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
@@ -62,9 +64,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'drinks.pipelines.DrinksPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'drinks.pipelines.DrinksPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
