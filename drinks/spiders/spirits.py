@@ -1,8 +1,10 @@
 import scrapy 
 from scrapy.loader import ItemLoader
 from drinks.items import DrinksItem
+from scrapy.crawler import CrawlerProcess
+from drinks.spiders.coolers import CoolerSpider
 
-class SojuSpider(scrapy.Spider):
+class SpiritsSpider(scrapy.Spider):
     name="spirits"
     # allowed_domains = ['https://lcbo.com']
     start_urls = ['https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/brandy-15011',
@@ -52,3 +54,8 @@ class SojuSpider(scrapy.Spider):
         loader.add_css('origin_place', 'dd:nth-child(5) span::text')
         loader.add_css('drink_type', '#widget_breadcrumb li~ li+ li a::text')
         yield loader.load_item()
+
+process = CrawlerProcess()
+# process.crawl(SpiritsSpider)
+process.crawl(CoolerSpider)
+process.start()
