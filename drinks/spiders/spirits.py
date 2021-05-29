@@ -1,8 +1,8 @@
 import scrapy 
 from scrapy.loader import ItemLoader
 from drinks.items import DrinksItem
-from scrapy.crawler import CrawlerProcess
-from drinks.spiders.coolers import CoolerSpider
+
+
 
 class SpiritsSpider(scrapy.Spider):
     name="spirits"
@@ -55,7 +55,14 @@ class SpiritsSpider(scrapy.Spider):
         loader.add_css('drink_type', '#widget_breadcrumb li~ li+ li a::text')
         yield loader.load_item()
 
-process = CrawlerProcess()
-# process.crawl(SpiritsSpider)
-process.crawl(CoolerSpider)
-process.start()
+
+
+
+# configure_logging()
+# runner = CrawlerRunner()
+# runner.crawl(CoolerSpider)
+# runner.crawl(SpiritsSpider)
+# d = runner.join()
+# d.addBoth(lambda _: reactor.stop())
+
+# reactor.run()

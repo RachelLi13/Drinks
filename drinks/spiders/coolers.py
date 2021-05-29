@@ -42,5 +42,5 @@ class CoolerSpider(scrapy.Spider):
         loader.add_css('drink_volume', 'dd b::text')
         loader.add_css('alcohol_percentage', 'dd:nth-child(3) span::text')
         loader.add_css('origin_place', 'dd:nth-child(5) span::text')
-        loader.add_css('drink_type', '#widget_breadcrumb li~ li+ li a::text')
+        loader.add_css('drink_type', '#widget_breadcrumb li+ li a::text')
         yield loader.load_item()
