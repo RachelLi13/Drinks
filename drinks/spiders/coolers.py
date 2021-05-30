@@ -5,21 +5,12 @@ from drinks.items import DrinksItem
 class CoolerSpider(scrapy.Spider):
     name='coolers'
 
-    start_urls = ['https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/coolers-18-1/coolers-18029']
+    start_urls = ['https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/coolers-18-1/coolers-18029',
+    'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/coolers-18-1/premixed-cocktails-18030']
 
     def parse(self, response):
-    # drink_number_total = response.css('.spaced-character::text').get()
-    # drink_number_total = int(drink_number_total)
-    # self.logger.info(drink_number_total)
-    # drink_number = 0
         drinks = response.css('.product')
         for drink in drinks:
-            # yield {
-            #     'name': drink.css(".product_name a::text").get(),
-            #     'price': drink.css("#content .price::text").get(),
-            #     'link': drink.css(".product_name a::attr(href)").get()
-            # }
-            # drink_number += 1
             loader = ItemLoader(item = DrinksItem(), selector = drink)
             loader.add_css('drink_name', '.product_name a::text')
             loader.add_css('drink_price',  '.price::text')

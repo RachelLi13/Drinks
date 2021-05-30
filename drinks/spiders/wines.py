@@ -4,17 +4,18 @@ from drinks.items import DrinksItem
 
 
 
-class SpiritsSpider(scrapy.Spider):
-    name="spirits"
+class WinesSpider(scrapy.Spider):
+    name="wines"
     # allowed_domains = ['https://lcbo.com']
-    start_urls = ['https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/brandy-15011',
-        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/cognac-armagnac-15012',
-        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/eau-de-vie-15013',
-        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/gin-15014',
-        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/grappa',
-        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/liqueur-liquor-15015',
-        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/rum-15016',
-        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/shochu-soju-15017']
+    start_urls = ['https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/wine-14/red-wine-14001',
+    'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/wine-14/white-wine-14002',
+    'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/wine-14/ros%C3%A9-wine-14003',
+    'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/wine-14/champagne-14004',
+    'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/wine-14/sparkling-wine-14005',
+    'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/wine-14/dessert-wine-14006',
+    'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/wine-14/icewine-14007',
+    'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/wine-14/fortified-wine',
+    'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/wine-14/specialty-wines-14009']
 
 
     def parse(self, response):
@@ -44,5 +45,3 @@ class SpiritsSpider(scrapy.Spider):
         loader.add_css('origin_place', 'dd:nth-child(5) span::text')
         loader.add_css('drink_type', '#widget_breadcrumb li~ li+ li a::text')
         yield loader.load_item()
-
-
