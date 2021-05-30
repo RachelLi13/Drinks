@@ -4,7 +4,7 @@ from drinks.items import DrinksItem
 
 
 
-class SpiritsSpider(scrapy.Spider):
+class Beer_CiderSpider(scrapy.Spider):
     name="beers_ciders"
     # allowed_domains = ['https://lcbo.com']
     start_urls = ['https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/beer-cider-16/lager-16023',
