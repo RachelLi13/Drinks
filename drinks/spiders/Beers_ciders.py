@@ -5,16 +5,14 @@ from drinks.items import DrinksItem
 
 
 class SpiritsSpider(scrapy.Spider):
-    name="spirits"
+    name="beers_ciders"
     # allowed_domains = ['https://lcbo.com']
-    start_urls = ['https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/brandy-15011',
-        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/cognac-armagnac-15012',
-        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/eau-de-vie-15013',
-        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/gin-15014',
-        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/grappa',
-        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/liqueur-liquor-15015',
-        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/rum-15016',
-        'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/spirits-15/shochu-soju-15017']
+    start_urls = ['https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/beer-cider-16/lager-16023',
+    'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/beer-cider-16/ale-16022',
+    'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/beer-cider-16/hybrid-16024',
+    'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/beer-cider-16/specialty-16025',
+    'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/beer-cider-16/cider-16028',
+    'https://www.lcbo.com/webapp/wcs/stores/servlet/en/lcbo/beer-cider-16/radler-shandy-16117']
 
 
     def parse(self, response):
@@ -54,5 +52,3 @@ class SpiritsSpider(scrapy.Spider):
         loader.add_css('origin_place', 'dd:nth-child(5) span::text')
         loader.add_css('drink_type', '#widget_breadcrumb li~ li+ li a::text')
         yield loader.load_item()
-
-

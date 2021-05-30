@@ -16,7 +16,7 @@ NEWSPIDER_MODULE = 'drinks.spiders'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'drinks (+http://www.yourdomain.com)'
 
-CONNECTION_STRING = 'sqlite:///scrapy_quotes.db'
+CONNECTION_STRING = 'sqlite:///drinks.db'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
