@@ -16,7 +16,15 @@ NEWSPIDER_MODULE = 'drinks.spiders'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'drinks (+http://www.yourdomain.com)'
 
-CONNECTION_STRING = 'sqlite:///drinks.db'
+# MySQL
+CONNECTION_STRING = "{drivername}://{user}:{passwd}@{host}:{port}/{db_name}?charset=utf8".format(
+     drivername="mysql",
+     user="rachelli",
+     passwd="password",
+     host="localhost",
+     port="3306",
+     db_name="drinks_db",
+)
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
